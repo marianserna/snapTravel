@@ -1,4 +1,4 @@
-export const colors = {};
+export const colors = { pumpkin: '#ff8314' };
 
 export const fontSizes = {};
 

@@ -7,6 +7,8 @@ import SearchForm from './SearchForm';
 import Sorting from './Sorting';
 import SearchResults from './SearchResults';
 
+import { AppContainer } from '../elements/app';
+
 class App extends Component {
   static propTypes = {
     searched: PropTypes.bool.isRequired
@@ -14,12 +16,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <Header />
         <SearchForm />
         {this.props.searched ? <Sorting /> : ''}
         {this.props.searched ? <SearchResults /> : ''}
-      </div>
+      </AppContainer>
     );
   }
 }
