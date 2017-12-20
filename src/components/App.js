@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import SearchForm from './SearchForm';
 import Sorting from './Sorting';
+import SearchResults from './SearchResults';
 
 class App extends Component {
   static propTypes = {
@@ -17,6 +18,7 @@ class App extends Component {
         <Header />
         <SearchForm />
         {this.props.searched ? <Sorting /> : ''}
+        {this.props.searched ? <SearchResults /> : ''}
       </div>
     );
   }
@@ -30,4 +32,6 @@ const mapDispatchToProps = dispatch => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps, null, {
+  pure: false
+})(App);

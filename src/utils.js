@@ -36,29 +36,30 @@ const sortHotels = (hotels, sorting, sorting_order) => {
       return 0;
     },
     rating: (hotelA, hotelB) => {
-      if (hotelA.snap_info.rating < hotelB.snap_info.rating) {
-        return -1;
-      }
-      if (hotelA.snap_info.rating > hotelB.snap_info.rating) {
+      if (hotelA.snap_info.num_stars < hotelB.snap_info.num_stars) {
         return 1;
+      }
+      if (hotelA.snap_info.num_stars > hotelB.snap_info.num_stars) {
+        return -1;
       }
       return 0;
     },
     savings: (hotelA, hotelB) => {
       const diffA = hotelA.retail_info.price - hotelA.snap_info.price;
-      const diffB = hotelB.retail_info.rating - hotelB.snap_info.rating;
+      const diffB = hotelB.retail_info.price - hotelB.snap_info.price;
 
       if (diffA < diffB) {
-        return -1;
+        return 1;
       }
       if (diffA > diffB) {
-        return 1;
+        return -1;
       }
       return 0;
     }
   };
 
   const sortedHotels = hotels.sort(sortCallbacks[sorting]);
+
   if (sorting_order === 'asc') {
     return sortedHotels;
   } else {

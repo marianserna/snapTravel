@@ -7,7 +7,7 @@ import reducer from './reducer';
 export default createStore(
   reducer,
   {
-    searched: true,
+    searched: false,
     sorting: 'price',
     sorting_order: 'asc',
     snap_results: [],
