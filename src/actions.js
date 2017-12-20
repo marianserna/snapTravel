@@ -32,4 +32,12 @@ const search = (city, checkin, checkout) => {
   };
 };
 
-export { search };
+const changeSort = (sorting, sorting_order) => {
+  return {
+    type: 'CHANGE_SORT',
+    sorting: sorting,
+    sorting_order: sorting_order
+  };
+};
+
+export { search, changeSort };

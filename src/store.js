@@ -7,13 +7,11 @@ import reducer from './reducer';
 export default createStore(
   reducer,
   {
-    searched: false,
+    searched: true,
     sorting: 'price',
     sorting_order: 'asc',
     snap_results: [],
     retails_results: []
   },
-  composeWithDevTools(
-    applyMiddleware(thunk)
-  )
+  composeWithDevTools(applyMiddleware(thunk))
 );
