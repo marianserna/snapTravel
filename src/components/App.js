@@ -7,7 +7,7 @@ import SearchForm from './SearchForm';
 import Sorting from './Sorting';
 import SearchResults from './SearchResults';
 
-import { AppContainer } from '../elements/app';
+import { AppContainer, Main } from '../elements/app';
 
 class App extends Component {
   static propTypes = {
@@ -18,9 +18,11 @@ class App extends Component {
     return (
       <AppContainer>
         <Header />
-        <SearchForm />
-        {this.props.searched ? <Sorting /> : ''}
-        {this.props.searched ? <SearchResults /> : ''}
+        <Main>
+          <SearchForm />
+          {this.props.searched ? <Sorting /> : ''}
+          {this.props.searched ? <SearchResults /> : ''}
+        </Main>
       </AppContainer>
     );
   }

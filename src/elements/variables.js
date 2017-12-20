@@ -1,9 +1,15 @@
-export const colors = { pumpkin: '#ff8314' };
+export const colors = {
+  pumpkin: '#ff8314',
+  input: '#787878'
+};
 
-export const fontSizes = {};
+export const fontSizes = { input: '14px' };
 
-export const margin = {};
+export const margin = {
+  section: '22px'
+};
 
-export const padding = {};
-
-export const fonts = {};
+export const padding = {
+  section: '22px',
+  input: '19px'
+};

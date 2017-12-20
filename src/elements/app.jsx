@@ -6,4 +6,10 @@ const AppContainer = styled.div`
   border: 1px solid red;
 `;
 
-export { AppContainer };
+const Main = styled.main`
+  margin-left: 90px;
+  margin-right: 90px;
+  border: 1px solid blue;
+`;
+
+export { AppContainer, Main };

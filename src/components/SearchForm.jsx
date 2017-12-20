@@ -4,12 +4,19 @@ import PropTypes from 'prop-types';
 
 import { search } from '../actions';
 
+import {
+  FormContainer,
+  Input,
+  Button,
+  SearchImg
+} from '../elements/searchForm';
+
 class SearchForm extends React.Component {
   static propTypes = { onSearch: PropTypes.func.isRequired };
 
   render() {
     return (
-      <section>
+      <FormContainer>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -20,30 +27,30 @@ class SearchForm extends React.Component {
             );
           }}
         >
-          <input
+          <Input
             type="text"
             defaultValue="Toronto"
-            ref={input => (this.city = input)}
+            innerRef={input => (this.city = input)}
             placeholder="Search By City"
           />
-          <input
+          <Input
             type="text"
             defaultValue="2018-01-01"
-            ref={input => (this.checkin = input)}
+            innerRef={input => (this.checkin = input)}
             placeholder="Check-In"
           />
-          <input
+          <Input
             type="text"
             defaultValue="2018-01-03"
-            ref={input => (this.checkout = input)}
+            innerRef={input => (this.checkout = input)}
             placeholder="Check-Out"
           />
 
-          <button type="submit">
-            <img src="/images/search.svg" alt="search" />
-          </button>
+          <Button type="submit">
+            <SearchImg src="/images/search.svg" alt="search" />
+          </Button>
         </form>
-      </section>
+      </FormContainer>
     );
   }
 }
