@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { changeSort } from '../actions';
 import SortingButton from './SortingButton';
 
+import { SortingButtons } from '../elements/sorting';
+
 class Sorting extends React.Component {
   static propTypes = {
     sorting: PropTypes.string.isRequired,
@@ -14,11 +16,11 @@ class Sorting extends React.Component {
 
   render() {
     return (
-      <section>
+      <SortingButtons>
         <SortingButton value="price" label="Price" {...this.props} />
         <SortingButton value="rating" label="Rating" {...this.props} />
         <SortingButton value="savings" label="Savings" {...this.props} />
-      </section>
+      </SortingButtons>
     );
   }
 }
