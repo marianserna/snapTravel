@@ -4,11 +4,13 @@ import { colors, padding, margin, fontSizes } from './variables';
 const HotelInfo = styled.section`
   margin-top: ${margin.section};
   padding: ${padding.section};
+  padding-right: 0px;
   display: flex;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.18);
 
   @media (max-width: 1172px) {
     display: block;
+    padding: ${padding.section};
   }
 `;
 
