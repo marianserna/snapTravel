@@ -5,6 +5,10 @@ const SortingButtons = styled.section`
   display: flex;
   justify-content: space-between;
   padding-top: ${padding.section};
+
+  @media (max-width: 810px) {
+    display: block;
+  }
 `;
 
 const Filter = styled.button`
@@ -17,6 +21,11 @@ const Filter = styled.button`
   padding-left: ${padding.filter};
   border: none;
   border-radius: 3px;
+
+  @media (max-width: 810px) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `;
 
 const ActiveFilter = styled(Filter)`

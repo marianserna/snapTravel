@@ -79,7 +79,7 @@ export default class Hotel extends React.Component {
                   <Star src="/images/star.svg" key={star} alt="star" />
                 ))}
 
-                <p>{hotel.num_reviews} Reviews</p>
+                <NumReviews>{hotel.num_reviews} Reviews</NumReviews>
               </StarContainer>
 
               <AmenitiesContainer>

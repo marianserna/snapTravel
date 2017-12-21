@@ -15,6 +15,13 @@ const Input = styled.input`
   border-radius: 5px;
   padding-left: ${padding.input};
   box-shadow: 0 0 4px 0 #c4c4c4;
+
+  @media (max-width: 810px) {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `;
 
 const Button = styled.button`
@@ -24,6 +31,11 @@ const Button = styled.button`
   border-radius: 5px;
   transform: translateY(4px);
   box-shadow: 0 0 4px 0 #bbbbbb;
+
+  @media (max-width: 810px) {
+    display: block;
+    width: 20%;
+  }
 `;
 
 const SearchImg = styled.img`

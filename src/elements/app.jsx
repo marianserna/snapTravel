@@ -8,6 +8,11 @@ const AppContainer = styled.div`
 const Main = styled.main`
   margin-left: 90px;
   margin-right: 90px;
+
+  @media (max-width: 810px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `;
 
 export { AppContainer, Main };

@@ -6,11 +6,23 @@ const HotelInfo = styled.section`
   padding: ${padding.section};
   display: flex;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.18);
+
+  @media (max-width: 1172px) {
+    display: block;
+  }
 `;
 
 const Details = styled.div`
   width: 50%;
   display: flex;
+
+  @media (max-width: 1172px) {
+    width: 100%;
+  }
+
+  @media (max-width: 810px) {
+    display: block;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -19,6 +31,14 @@ const ImageContainer = styled.div`
 
 const DetailsImg = styled.img`
   width: 184.9px;
+
+  @media (max-width: 1172px) {
+    width: 100%;
+  }
+
+  @media (max-width: 810px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const Banner = styled.div`
@@ -53,6 +73,16 @@ const Off = styled(Savings)`
 const HotelFacts = styled.div`
   margin-left: ${margin.hotelFacts};
   color: ${colors.hotelInfo};
+
+  @media (max-width: 1172px) {
+    border-bottom: 1px solid ${colors.input};
+    width: 100%;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 0;
+    border-bottom: none;
+  }
 `;
 
 const HotelName = styled.h2`
@@ -60,7 +90,7 @@ const HotelName = styled.h2`
   padding-top: 4px;
   font-size: ${fontSizes.h2};
   font-weight: 600;
-  line-height: 22px;
+  line-height: 25px;
   padding-bottom: ${padding.hotelInfo};
 `;
 
@@ -74,7 +104,9 @@ const SplitFacts = styled.div`
   display: flex;
 `;
 
-const NumReviews = styled.p``;
+const NumReviews = styled.p`
+  font-weight: 500;
+`;
 
 const Amenities = styled.p`
   margin-top: ${margin.amenities};
@@ -85,6 +117,15 @@ const Prices = styled.section`
   display: flex;
   justify-content: flex-end;
   width: 50%;
+
+  @media (max-width: 1172px) {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 810px) {
+    display: block;
+  }
 `;
 
 const Price = styled.div`
@@ -94,6 +135,11 @@ const Price = styled.div`
   position: relative;
   height: 177px;
   font-size: ${fontSizes.price};
+
+  @media (max-width: 810px) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `;
 
 const HotelsPrice = styled(Price)`
