@@ -14,6 +14,14 @@ import {
 class SearchForm extends React.Component {
   static propTypes = { onSearch: PropTypes.func.isRequired };
 
+  componentDidMount() {
+    this.props.onSearch(
+      this.city.value,
+      this.checkin.value,
+      this.checkout.value
+    );
+  }
+
   render() {
     return (
       <FormContainer>

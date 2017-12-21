@@ -1,6 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  HotelInfo,
+  Details,
+  ImageContainer,
+  DetailsImg,
+  Banner,
+  Savings,
+  Off,
+  HotelFacts,
+  HotelName,
+  HotelAddress,
+  NumReviews,
+  Amenities,
+  Prices,
+  HotelsPrice,
+  PriceTag,
+  SnapPrice,
+  HotelsImage,
+  SplitFacts,
+  StarContainer,
+  AmenitiesContainer,
+  Star,
+  ViewDetails
+} from '../elements/hotel';
+
 export default class Hotel extends React.Component {
   static propTypes = {
     hotel: PropTypes.shape({
@@ -23,53 +48,68 @@ export default class Hotel extends React.Component {
 
   render() {
     const hotel = this.props.hotel.snap_info;
+    const savings = parseInt(this.props.hotel.retail_info.price - hotel.price);
     const stars = [];
     for (let i = 0; i < hotel.num_stars; i++) {
       stars.push(i);
     }
 
     return (
-      <div>
-        <section className="hotelInfo">
-          <div>
-            <img src={hotel.image_url} alt={hotel.hotel_name} />
-            <div style={{ backgroundImage: '/images/discount-banner.svg' }}>
-              ${this.props.hotel.retail_info.price - hotel.price}
-              <br />
-              OFF
-            </div>
-          </div>
+      <HotelInfo>
+        <Details>
+          <ImageContainer>
+            <DetailsImg src={hotel.image_url} alt={hotel.hotel_name} />
+            {savings > 0 ? (
+              <Banner>
+                <Savings>${savings}</Savings>
+                <Off>OFF</Off>
+              </Banner>
+            ) : (
+              ''
+            )}
+          </ImageContainer>
 
-          <div>
-            <h2>{hotel.hotel_name}</h2>
-            <h3>{hotel.address}</h3>
+          <HotelFacts>
+            <HotelName>{hotel.hotel_name}</HotelName>
+            <HotelAddress>{hotel.address}</HotelAddress>
 
-            <div className="ratings">
-              {stars.map(star => (
-                <img src="/images/star.svg" key={star} alt="star" />
-              ))}
-            </div>
-          </div>
+            <SplitFacts>
+              <StarContainer>
+                {stars.map(star => (
+                  <Star src="/images/star.svg" key={star} alt="star" />
+                ))}
 
-          <div>
-            {hotel.amenities.map(amenity => <p key={amenity}>{amenity}</p>)}
-          </div>
-        </section>
+                <p>{hotel.num_reviews} Reviews</p>
+              </StarContainer>
 
-        <section className="priceComparison">
-          <div>
-            <p className="hotelsPrice">
-              USD${this.props.hotel.retail_info.price}
-            </p>
-            <img src="/images/hotels-com-logo.png" alt="hotels.com logo" />
-          </div>
+              <AmenitiesContainer>
+                {hotel.amenities.map(amenity => (
+                  <Amenities key={amenity}>{amenity}</Amenities>
+                ))}
+              </AmenitiesContainer>
+            </SplitFacts>
+          </HotelFacts>
+        </Details>
 
-          <div>
-            <p className="snapPrice">USD${hotel.price}</p>
-            <a href="https://www.getsnaptravel.com/">View Details</a>
-          </div>
-        </section>
-      </div>
+        <Prices>
+          <HotelsPrice>
+            <PriceTag>
+              USD${parseInt(this.props.hotel.retail_info.price)}
+            </PriceTag>
+            <HotelsImage
+              src="/images/hotels-com-logo.png"
+              alt="hotels.com logo"
+            />
+          </HotelsPrice>
+
+          <SnapPrice>
+            <PriceTag>USD${parseInt(hotel.price)}</PriceTag>
+            <ViewDetails href="https://www.getsnaptravel.com/">
+              View Details
+            </ViewDetails>
+          </SnapPrice>
+        </Prices>
+      </HotelInfo>
     );
   }
 }
